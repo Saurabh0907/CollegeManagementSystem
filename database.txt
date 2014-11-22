@@ -1,0 +1,152 @@
+create database college;
+
+use college;
+
+create table login(
+type varchar(20),
+name varchar(20),
+username varchar(20),
+password varchar(20));
+
+insert into login values('Admin','Admin','admin','admin');
+insert into login values('Employee','Rajinder','emp001','emp001');
+insert into login values('Student','Saurabh','stu001','stu001');
+
+create table department(
+name varchar(50),
+id varchar(20),
+hod varchar(20) REFERENCES login.name);
+
+insert into department values("Computer Science","CS111","Rajnder");
+
+create table subject(
+name varchar(50),
+id varchar(20),
+dept varchar(20) REFERENCES department.name,
+branch varchar(10),
+semester varchar(10)
+);
+
+insert into subject values("Data Structures","CI411","Computer Science","CSE","1");
+
+create table hostel(
+name varchar(50),
+fee varchar(10),
+seats varchar(5));
+
+insert into hostel values("RB","1000","100");
+
+
+create table course(
+name varchar(20),
+branch varchar(20),
+tutionfee varchar(10),
+libraryfee varchar(10),
+studentCouncilFee varchar(10),
+otherFee varchar(10),
+totalFee varchar(10));
+
+create table scholarship(
+name varchar(20),
+fund varchar(10),
+details varchar(50));
+
+
+create table studInfo(
+name varchar(30),
+enroll varchar(20),
+stud_contact varchar(15),
+address varchar(100),
+city varchar(20),
+district varchar(20),
+state varchar(20),
+pincode varchar(10),
+stud_email varchar(30),
+father varchar(30),
+mother varchar(30),
+contact varchar(15),
+email varchar(30));
+
+
+create table studInfo1(
+enroll varchar(20),
+gender varchar(6),
+Roll12 varchar(15),
+doc varchar(4),
+scholar varchar(4),
+bus varchar(4),
+hostel varchar(4),
+payment varchar(4));
+
+insert into studInfo values("Vaibhav Garg","emp001","9999911111","House","Jgd","Ynr","HR","135003","v@gmail.com","SKG","AG","9898989898","s@gmail.com");
+
+insert into studInfo1 values("stu001","Male","12121212","Yes","No","Yes","yes","Yes");
+
+create table bus(
+num varchar(10),fee varchar(10),seats varchar(10));
+
+insert into bus values("one","400","50");
+
+
+create table stud_scholar(
+enroll varchar(20),
+sch_nm varchar(20),
+amt varchar(10));
+
+create table stud_hos(
+enroll varchar(20),
+hos_nm varchar(50),
+fee varchar(10));
+
+create table stud_bus(
+enroll varchar(20),
+bus_num varchar(10),
+fee varchar(10));
+
+create table stud_crs_fee(
+enroll varchar(20),
+crs_nm varchar(20),
+fee varchar(10),
+totalfee varchar(10));
+
+create table stud_pay_mode(
+enroll varchar(20),
+method varchar(15),
+num varchar(20),
+bankname varchar(50));
+
+create table otherFee(
+enroll varchar(20),
+type varchar(30),
+fee varchar(10),
+details varchar(50));
+
+create table request(
+enroll varchar(20),
+name varchar(20),
+type varchar(20),
+ty_nm varchar(20),
+amount varchar(20),
+mode varchar(20),
+number varchar(20),
+bankname varchar(50));
+
+create table empProfile(
+code varchar(20),
+name varchar(20),
+number varchar(15),
+address varchar(50),
+city varchar(20),
+district varchar(20),
+state varchar(20),
+pincode varchar(20),
+email varchar(30));
+
+
+create table emp_Sal(
+code varchar(20),
+name varchar(20),
+salary varchar(20),
+paid varchar(5)
+);
+
